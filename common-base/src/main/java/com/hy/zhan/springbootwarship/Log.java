@@ -17,6 +17,14 @@ public class Log {
 
     private static Logger logger = LoggerFactory.getLogger(Log.class);
 
+    public static void warn(String msg) {
+        Condition.ifTrue(enable, () -> logger.warn(msg));
+    }
+
+    public static void debug(String msg) {
+        Condition.ifTrue(enable, () -> logger.debug(msg));
+    }
+
     public static void info(String msg) {
         Condition.ifTrue(enable, () -> logger.info(msg));
     }
