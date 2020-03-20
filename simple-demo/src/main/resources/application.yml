@@ -1,0 +1,4 @@
+#warship:
+#  log:
+#    enable: true
+#    level: "error"
