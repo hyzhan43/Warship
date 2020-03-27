@@ -6,6 +6,7 @@
     <modules>
         <module>common-base</module>
         <module>simple-demo</module>
+        <module>core</module>
     </modules>
 
     <parent>
