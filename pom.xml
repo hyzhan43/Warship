@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>common-base</module>
-        <module>simple-demo</module>
-        <module>core</module>
+        <module>warship-common</module>
+        <module>warship-core</module>
+        <module>warship-demo</module>
     </modules>
 
     <parent>
@@ -15,6 +15,7 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.hy.zhan</groupId>
     <artifactId>spring-boot-warship</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -53,7 +54,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
