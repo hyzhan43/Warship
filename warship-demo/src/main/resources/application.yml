@@ -1,4 +1,5 @@
-#warship:
-#  log:
-#    enable: true
-#    level: "error"
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true

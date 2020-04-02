@@ -1,5 +1,7 @@
 package com.hy.zhan.springbootwarship.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hy.zhan.springbootwarship.exception.ErrorCode;
 import lombok.Data;
 
 /**
@@ -11,6 +13,7 @@ import lombok.Data;
 public class Response<T> {
 
     private final static int SUCCESS = 0;
+    private final static int ERROR = -1;
 
     private Integer code;
 
@@ -25,13 +28,21 @@ public class Response<T> {
         return response;
     }
 
-    public static <T> Response<T> error(String msg) {
-        Response<T> response = new Response<>();
-        response.setCode(SUCCESS);
-        response.setMessage(msg);
+    public static Response<Object> error(String message) {
+        Response<Object> response = new Response<>();
+        response.setCode(ERROR);
+        response.setMessage(message);
         return response;
     }
 
+    public static Response<Object> error(ErrorCode errorCode) {
+        Response<Object> response = new Response<>();
+        response.setCode(errorCode.getCode());
+        response.setMessage(errorCode.getDesc());
+        return response;
+    }
+
+    @JsonIgnore
     public boolean isSuccess() {
         return SUCCESS == code;
     }

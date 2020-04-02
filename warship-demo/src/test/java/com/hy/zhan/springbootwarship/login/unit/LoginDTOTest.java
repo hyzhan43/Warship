@@ -9,6 +9,7 @@ import com.hy.zhan.springbootwarship.vo.LoginVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -25,9 +26,8 @@ public class LoginDTOTest extends BaseRequestTest {
     @Test
     public void test_user_dto_validate() {
         when(loginService.login(any())).thenReturn(new LoginVO());
-        LoginDTO loginDTO = new LoginDTO();
-        request("/login", loginDTO, new TypeReference<Response<LoginVO>>() {
+        Response<LoginVO> response = request("/login", new LoginDTO(), new TypeReference<Response<LoginVO>>() {
         });
-
+        assertNotNull(response.getMessage());
     }
 }

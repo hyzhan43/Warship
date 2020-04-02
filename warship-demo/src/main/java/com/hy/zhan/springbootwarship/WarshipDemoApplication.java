@@ -6,12 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * author :  HyJame
  * date  :   2020/3/6
- * desc :    simple-demo 启动类
+ * desc :    warship-demo 启动类
  */
 @SpringBootApplication
-public class SimpleDemoApplication {
+public class WarshipDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleDemoApplication.class);
+        SpringApplication.run(WarshipDemoApplication.class);
     }
 }

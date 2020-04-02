@@ -12,9 +12,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class LoginDTO {
 
-    @NotNull
+    @NotNull(message = "username 不能为空")
     private String username;
 
-    @NotNull
+    @NotNull(message = "password 不能为空")
     private String password;
 }
