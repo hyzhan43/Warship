@@ -3,7 +3,7 @@ package com.hy.zhan.springbootwarship.exception;
 /**
  * author :  HyJame
  * date  :   2020/4/1
- * desc :    tell me what
+ * desc :    异常状态码
  */
 public enum ErrorCode {
     SERVER_ERROR(-1, "服务器内部异常"),

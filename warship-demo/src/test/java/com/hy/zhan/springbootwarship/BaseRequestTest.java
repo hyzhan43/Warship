@@ -6,15 +6,12 @@ import com.hy.zhan.springbootwarship.bean.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultHandler;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 /**
@@ -57,14 +54,12 @@ public class BaseRequestTest extends BaseSpringTest {
         }
 
         assertNotNull(response);
-        assertTrue(response.isSuccess());
-
         return response;
     }
 
-    public Response request(String url, Object requestBody) {
+    public Response<Object> request(String url, Object requestBody) {
 
-        Response response = null;
+        Response<Object> response = null;
         try {
             MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post(url)
                     .contentType(MediaType.APPLICATION_JSON)
@@ -76,6 +71,9 @@ public class BaseRequestTest extends BaseSpringTest {
                     .andReturn()
                     .getResponse()
                     .getContentAsString();
+
+
+            //noinspection unchecked
             response = mapper.readValue(responseStr, Response.class);
         } catch (Exception e) {
             e.printStackTrace();

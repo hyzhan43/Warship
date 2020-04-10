@@ -44,7 +44,7 @@ public class ExceptionHandle {
         FieldError fieldError = bindingResult.getFieldError();
         if (fieldError != null) {
             String msg = fieldError.getDefaultMessage();
-            return Response.error(msg);
+            return Response.error(ErrorCode.PARAMETER.getCode(), msg);
         }
 
         return Response.error(ErrorCode.PARAMETER);
@@ -62,34 +62,35 @@ public class ExceptionHandle {
         }
 
         FieldError fieldError = e.getFieldError();
-        return Response.error(fieldError.getDefaultMessage());
+        return Response.error(ErrorCode.PARAMETER.getCode(), fieldError.getDefaultMessage());
     }
 
-    // 没有传 requestBody 会抛出此异常
+    /**
+     * 没有传 requestBody 会抛出此异常
+     */
     @ResponseBody
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Response<Object> methodHandle(HttpMessageNotReadableException e) {
         return Response.error(ErrorCode.PARAMETER);
     }
 
-    // 请求 http 方法不对
+    /**
+     * 请求 http 方法不匹配时, 抛出此异常
+     */
     @ResponseBody
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Response<Object> httpHandle(HttpRequestMethodNotSupportedException e) {
         return Response.error(ErrorCode.HTTP_METHOD_ERROR);
     }
 
-
-    // 捕获 服务器内部异常  状态码 -> 500
+    /**
+     * 捕获 服务器内部异常  状态码 -> 500
+     */
     @ResponseBody
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Response<Object> handle(Exception e) {
-
-        log.error("-------------------------------------------------");
         log.error(e + "");
-        log.error("-------------------------------------------------");
-
         return Response.error(ErrorCode.SERVER_ERROR);
     }
 }

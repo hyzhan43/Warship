@@ -1,6 +1,7 @@
 package com.hy.zhan.springbootwarship.common;
 
 import java.util.Collection;
+import java.util.function.Consumer;
 
 /**
  * author: HyJame
@@ -39,9 +40,9 @@ public class Condition {
         }
     }
 
-    public static <T> void ifNotEmpty(Collection<T> collection, Action action) {
+    public static <T> void ifNotEmpty(Collection<T> collection, Consumer<Collection<T>> consumer) {
         if (collection != null && !collection.isEmpty()) {
-            action.run();
+            consumer.accept(collection);
         }
     }
 }

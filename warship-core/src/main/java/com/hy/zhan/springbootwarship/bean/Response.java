@@ -35,6 +35,13 @@ public class Response<T> {
         return response;
     }
 
+    public static Response<Object> error(Integer code, String message) {
+        Response<Object> response = new Response<>();
+        response.setCode(code);
+        response.setMessage(message);
+        return response;
+    }
+
     public static Response<Object> error(ErrorCode errorCode) {
         Response<Object> response = new Response<>();
         response.setCode(errorCode.getCode());

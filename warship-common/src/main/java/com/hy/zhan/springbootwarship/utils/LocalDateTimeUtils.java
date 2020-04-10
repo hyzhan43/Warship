@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * author :  HyJame
  * date  :   2020/1/14
- * desc :    what
+ * desc :    localDateTime 工具类
  */
 public class LocalDateTimeUtils {
 
@@ -27,6 +27,8 @@ public class LocalDateTimeUtils {
 
 
     /**
+     * 字符串时间 转化为 时间戳
+     *
      * @param time such as "2019-11-09 10:45:00"
      * @return timestamp
      */
@@ -43,32 +45,13 @@ public class LocalDateTimeUtils {
     }
 
     /**
+     * 把时间戳 转换为 字符串
+     *
      * @param timestamp (日期 + 时间)时间戳
      * @return format string, such as "2019-11-09 10:45:00"
      */
     public static String timestamp2String(long timestamp) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DateFormatConfig.DATE_TIME_FORMAT);
         return formatter.format(LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneId.systemDefault()));
-    }
-
-
-    public static long ceil(long timestamp) {
-        int surplus = (int) (timestamp % 60);
-
-        if (surplus > 0) {
-            return timestamp + (60 - timestamp % 60);
-        }
-
-        return timestamp;
-    }
-
-    public static long floor(long timestamp) {
-        int surplus = (int) (timestamp % 60);
-
-        if (surplus > 0) {
-            return timestamp - timestamp % 60;
-        }
-
-        return timestamp;
     }
 }

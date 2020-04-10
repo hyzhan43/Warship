@@ -6,6 +6,7 @@ import com.hy.zhan.springbootwarship.service.LoginService;
 import com.hy.zhan.springbootwarship.vo.LoginVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +25,12 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("/login")
-    public Response<LoginVO> login(@Valid @RequestBody LoginDTO loginDTO) {
+    public Response<LoginVO> login(@Validated @RequestBody LoginDTO loginDTO) {
         return Response.success(loginService.login(loginDTO));
     }
 
     @PostMapping("/register")
-    public Response<LoginVO> register(@Valid LoginDTO loginDTO) {
+    public Response<LoginVO> register(@Validated LoginDTO loginDTO) {
         return Response.success(loginService.login(loginDTO));
     }
 }
