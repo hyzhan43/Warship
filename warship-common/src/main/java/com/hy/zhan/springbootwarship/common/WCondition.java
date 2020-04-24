@@ -8,7 +8,7 @@ import java.util.function.Consumer;
  * date:   2020/1/3
  * desc:   TODO
  */
-public class Condition {
+public class WCondition {
 
     public static void ifNull(Object object, Action action) {
         if (object == null) {
