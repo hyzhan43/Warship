@@ -1,17 +1,14 @@
-package java.com.hy.zhan.warshiptest;
+package com.hy.zhan.warshiptest;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * author :  HyJame
  * date  :   2020/3/11
  * desc :    tell me what
  */
-//@RunWith(MockitoJUnitRunner.class)
-//public class BaseTest {
-//
-//    @Rule
-//    public ExpectedException exception = ExpectedException.none();
+@ExtendWith(MockitoExtension.class)
+public class BaseTest {
 
-//    public void expectMessage(StatusCode statusCode){
-//        exception.expectMessage(statusCode.code() + "");
-//    }
-//}
+}

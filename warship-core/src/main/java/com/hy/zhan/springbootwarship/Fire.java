@@ -6,4 +6,6 @@ package com.hy.zhan.springbootwarship;
  * desc :    抛出异常类
  */
 public class Fire {
+
+
 }
