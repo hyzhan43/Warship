@@ -1,4 +1,4 @@
-package com.hy.zhan.warshiptest;
+package com.hy.zhan.springbootwarship;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -10,5 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
  */
 @ExtendWith(MockitoExtension.class)
 public class BaseTest {
+
 
 }

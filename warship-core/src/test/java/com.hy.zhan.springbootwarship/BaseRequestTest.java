@@ -1,4 +1,4 @@
-package com.hy.zhan.warshiptest;
+package com.hy.zhan.springbootwarship;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

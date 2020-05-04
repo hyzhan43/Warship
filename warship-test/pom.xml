@@ -12,11 +12,4 @@
     <artifactId>warship-test</artifactId>
     <version>0.0.1</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.hy.zhan</groupId>
-            <artifactId>warship-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-    </dependencies>
 </project>

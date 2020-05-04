@@ -13,22 +13,10 @@
 
     <dependencies>
         <dependency>
-            <artifactId>warship-common</artifactId>
-            <groupId>com.hy.zhan</groupId>
-            <version>0.0.1</version>
-        </dependency>
-
-        <dependency>
             <artifactId>warship-core</artifactId>
             <groupId>com.hy.zhan</groupId>
             <version>1.0.0</version>
         </dependency>
 
-        <dependency>
-            <artifactId>warship-test</artifactId>
-            <groupId>com.hy.zhan</groupId>
-            <version>0.0.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 </project>

@@ -22,16 +22,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @Slf4j
 @ControllerAdvice
-public class ExceptionHandle {
+public class WarshipExceptionHandler {
 
     // 捕获自定义异常   响应状态码 -> 200
-//    @ResponseBody
-//    @ExceptionHandler(BaseException.class)
-//    public <T> Response<T> handle(BaseException e) {
-//        return Response.error(e.getErrorCode());
-//    }
-//
-//
+    @ResponseBody
+    @ExceptionHandler(BaseException.class)
+    public Response<Object> handle(BaseException e) {
+        return Response.error(e.getErrorCode());
+    }
 
     /**
      * 添加 @Valid 注解后, 并且 application-json 形式入参, 校验失败会抛出此异常
@@ -44,10 +42,10 @@ public class ExceptionHandle {
         FieldError fieldError = bindingResult.getFieldError();
         if (fieldError != null) {
             String msg = fieldError.getDefaultMessage();
-            return Response.error(ErrorCode.PARAMETER.getCode(), msg);
+            return Response.error(CommonErrorCode.PARAMETER.getCode(), msg);
         }
 
-        return Response.error(ErrorCode.PARAMETER);
+        return Response.error(CommonErrorCode.PARAMETER);
     }
 
     /**
@@ -58,11 +56,11 @@ public class ExceptionHandle {
     public Response<Object> formDataHandle(BindException e) {
 
         if (!e.hasErrors() || e.getFieldError() == null) {
-            return Response.error(ErrorCode.PARAMETER);
+            return Response.error(CommonErrorCode.PARAMETER);
         }
 
         FieldError fieldError = e.getFieldError();
-        return Response.error(ErrorCode.PARAMETER.getCode(), fieldError.getDefaultMessage());
+        return Response.error(CommonErrorCode.PARAMETER.getCode(), fieldError.getDefaultMessage());
     }
 
     /**
@@ -71,7 +69,7 @@ public class ExceptionHandle {
     @ResponseBody
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Response<Object> methodHandle(HttpMessageNotReadableException e) {
-        return Response.error(ErrorCode.PARAMETER);
+        return Response.error(CommonErrorCode.PARAMETER);
     }
 
     /**
@@ -80,7 +78,7 @@ public class ExceptionHandle {
     @ResponseBody
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Response<Object> httpHandle(HttpRequestMethodNotSupportedException e) {
-        return Response.error(ErrorCode.HTTP_METHOD_ERROR);
+        return Response.error(CommonErrorCode.HTTP_METHOD_ERROR);
     }
 
     /**
@@ -91,6 +89,6 @@ public class ExceptionHandle {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Response<Object> handle(Exception e) {
         log.error(e + "");
-        return Response.error(ErrorCode.SERVER_ERROR);
+        return Response.error(CommonErrorCode.SERVER_ERROR);
     }
 }
