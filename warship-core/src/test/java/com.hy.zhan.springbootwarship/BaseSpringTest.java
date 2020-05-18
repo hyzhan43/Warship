@@ -1,4 +1,4 @@
-package java.com.hy.zhan.warshiptest;
+package com.hy.zhan.springbootwarship;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

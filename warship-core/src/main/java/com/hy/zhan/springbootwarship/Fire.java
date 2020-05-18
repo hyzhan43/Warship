@@ -1,5 +1,11 @@
 package com.hy.zhan.springbootwarship;
 
+import com.hy.zhan.springbootwarship.exception.BaseException;
+import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.util.Collection;
 import java.util.function.Supplier;
 
 /**
@@ -8,6 +14,35 @@ import java.util.function.Supplier;
  * desc :    抛出异常类
  */
 public class Fire {
+
+    public static void error(IErrorCode errorCode) {
+        throw new BaseException(errorCode);
+    }
+
+    public static void checkNull(Object o, IErrorCode errorCode) {
+        if (o == null){
+            Fire.error(errorCode);
+        }
+    }
+
+    public static void checkNotNull(Object o, IErrorCode errorCode) {
+        if (o != null){
+            Fire.error(errorCode);
+        }
+    }
+
+    public static <T> void checkEmpty(Collection<T> collection, CommonErrorCode errorCode) {
+        if (collection == null || collection.isEmpty()){
+            Fire.error(errorCode);
+        }
+    }
+
+    public static <T> void checkNotEmpty(Collection<T> collection, CommonErrorCode errorCode) {
+        if (collection != null && !collection.isEmpty()){
+            Fire.error(errorCode);
+        }
+    }
+
 
     /**
      * try {

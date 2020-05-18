@@ -24,7 +24,7 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("/login")
-    public Response<LoginVO> login(@Validated @RequestBody LoginDTO loginDTO) {
+    public Response<LoginVO> login(@RequestBody LoginDTO loginDTO) {
         return Response.success(loginService.login(loginDTO));
     }
 

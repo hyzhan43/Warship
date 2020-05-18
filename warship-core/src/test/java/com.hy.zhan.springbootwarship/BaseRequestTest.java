@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hy.zhan.springbootwarship.bean.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -12,6 +14,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 /**
@@ -20,13 +23,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
  * desc :    ...
  */
 @AutoConfigureMockMvc
+@TestConfiguration
 public class BaseRequestTest extends BaseSpringTest {
 
     @Autowired
     public MockMvc mockMvc;
 
     @Autowired
-    public ObjectMapper mapper;
+    private ObjectMapper mapper;
 
     public <R> R requestAndGetData(String url, Object requestBody, TypeReference<Response<R>> returnType) {
         Response<R> response = request(url, requestBody, returnType);
@@ -54,6 +58,8 @@ public class BaseRequestTest extends BaseSpringTest {
         }
 
         assertNotNull(response);
+        assertTrue(response.isSuccess());
+
         return response;
     }
 
@@ -72,7 +78,6 @@ public class BaseRequestTest extends BaseSpringTest {
                     .getResponse()
                     .getContentAsString();
 
-
             //noinspection unchecked
             response = mapper.readValue(responseStr, Response.class);
         } catch (Exception e) {
@@ -83,3 +88,8 @@ public class BaseRequestTest extends BaseSpringTest {
         return response;
     }
 }
+
+
+
+
+

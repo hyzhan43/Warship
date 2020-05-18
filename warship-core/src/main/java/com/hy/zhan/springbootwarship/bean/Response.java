@@ -1,7 +1,8 @@
 package com.hy.zhan.springbootwarship.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hy.zhan.springbootwarship.exception.ErrorCode;
+import com.hy.zhan.springbootwarship.IErrorCode;
+import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
 import lombok.Data;
 
 /**
@@ -42,10 +43,10 @@ public class Response<T> {
         return response;
     }
 
-    public static Response<Object> error(ErrorCode errorCode) {
+    public static Response<Object> error(IErrorCode errorCode) {
         Response<Object> response = new Response<>();
         response.setCode(errorCode.getCode());
-        response.setMessage(errorCode.getDesc());
+        response.setMessage(errorCode.getMessage());
         return response;
     }
 

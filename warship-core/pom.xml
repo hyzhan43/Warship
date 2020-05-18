@@ -5,21 +5,27 @@
     <parent>
         <artifactId>spring-boot-warship</artifactId>
         <groupId>com.hy.zhan</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>warship-core</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <dependencies>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>com.hy.zhan</groupId>
+            <artifactId>warship-test</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.hy.zhan</groupId>
+            <artifactId>warship-common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
+
+
 </project>
