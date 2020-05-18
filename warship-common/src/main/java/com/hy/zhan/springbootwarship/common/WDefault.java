@@ -1,5 +1,7 @@
 package com.hy.zhan.springbootwarship.common;
 
+import org.springframework.util.StringUtils;
+
 /**
  * author :  HyJame
  * date  :   2019/11/28
@@ -7,8 +9,13 @@ package com.hy.zhan.springbootwarship.common;
  */
 public class WDefault {
 
-    public static <T> T init(T t, T defValue) {
+    public static <T> T initIfNull(T t, T defValue) {
         if (t == null) return defValue;
+        return t;
+    }
+
+    public static String initIfEmpty(String t, String defValue) {
+        if (StringUtils.isEmpty(t)) return defValue;
         return t;
     }
 }
