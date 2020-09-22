@@ -1,8 +1,8 @@
 package com.hy.zhan.springbootwarship.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hy.zhan.springbootwarship.IErrorCode;
-import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
+import com.hy.zhan.warshiptest.IErrorCode;
+import com.hy.zhan.warshiptest.IResponse;
 import lombok.Data;
 
 /**
@@ -11,12 +11,12 @@ import lombok.Data;
  * desc :    tell me what
  */
 @Data
-public class Response<T> {
+public class Response<T> implements IResponse<T> {
 
     private final static int SUCCESS = 0;
     private final static int ERROR = -1;
 
-    private Integer code;
+    private int code;
 
     private String message;
 
@@ -52,6 +52,6 @@ public class Response<T> {
 
     @JsonIgnore
     public boolean isSuccess() {
-        return SUCCESS == code;
+        return SUCCESS == this.code;
     }
 }

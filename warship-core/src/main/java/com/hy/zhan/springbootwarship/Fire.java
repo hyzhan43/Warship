@@ -2,11 +2,9 @@ package com.hy.zhan.springbootwarship;
 
 import com.hy.zhan.springbootwarship.exception.BaseException;
 import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import com.hy.zhan.warshiptest.IErrorCode;
 
 import java.util.Collection;
-import java.util.function.Supplier;
 
 /**
  * author :  HyJame

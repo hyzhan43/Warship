@@ -1,9 +1,5 @@
 package com.hy.zhan.springbootwarship.login.unit;
 
-import com.hy.zhan.springbootwarship.BaseRequestTest;
-import com.hy.zhan.springbootwarship.bean.Response;
-import com.hy.zhan.springbootwarship.dto.LoginDTO;
-import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

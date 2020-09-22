@@ -1,6 +1,6 @@
 package com.hy.zhan.springbootwarship.exception;
 
-import com.hy.zhan.springbootwarship.IErrorCode;
+import com.hy.zhan.warshiptest.IErrorCode;
 
 /**
  * author :  HyJame

@@ -1,6 +1,7 @@
 package com.hy.zhan.springbootwarship;
 
 import com.hy.zhan.springbootwarship.common.Action;
+import com.hy.zhan.warshiptest.IErrorCode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

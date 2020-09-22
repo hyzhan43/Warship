@@ -1,9 +1,9 @@
-package com.hy.zhan.springbootwarship;
+package com.hy.zhan.warshiptest.base;
 
-import com.hy.zhan.springbootwarship.common.Action;
+import com.hy.zhan.warshiptest.Action;
+import com.hy.zhan.warshiptest.IErrorCode;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * author: HyJame
@@ -14,6 +14,7 @@ public class WarshipAssert {
 
     public static void expectMessage(Action action, IErrorCode errorCode) {
         Exception exception = assertThrows(Exception.class, action::run);
+        assertNotNull(exception.getMessage());
         assertEquals(errorCode.getMessage(), exception.getMessage());
     }
 }

@@ -5,10 +5,10 @@ import com.hy.zhan.springbootwarship.exception.CommonErrorCode;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-import static com.hy.zhan.springbootwarship.WarshipAssert.expectMessage;
+import static com.hy.zhan.warshiptest.base.WarshipAssert.expectMessage;
+
 
 /**
  * author: HyJame

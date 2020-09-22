@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  * author: HyJame
  * date:   2020/5/3
- * desc:   TODO
+ * desc:   开启 Warship 异常拦截器, 捕获通用异常
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

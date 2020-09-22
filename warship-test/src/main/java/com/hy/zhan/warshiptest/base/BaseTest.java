@@ -1,15 +1,13 @@
-package com.hy.zhan.springbootwarship;
+package com.hy.zhan.warshiptest.base;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
- * author :  HyJame
- * date  :   2020/3/11
- * desc :    tell me what
+ * author: HyJame
+ * date:   2020/5/4
+ * desc:   TODO
  */
 @ExtendWith(MockitoExtension.class)
 public class BaseTest {
-
-
 }

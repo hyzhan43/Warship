@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
  * desc :    ...
  */
 @AutoConfigureMockMvc
-public class BaseRequestTest extends BaseSpringTest {
+public class BaseRequestTest {
 
     @Autowired
     public MockMvc mockMvc;

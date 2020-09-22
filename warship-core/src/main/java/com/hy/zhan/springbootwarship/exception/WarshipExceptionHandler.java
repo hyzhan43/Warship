@@ -37,11 +37,13 @@ public class WarshipExceptionHandler {
     @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Response<Object> jsonHandle(MethodArgumentNotValidException e) {
+        e.printStackTrace();
+
         BindingResult bindingResult = e.getBindingResult();
         // 获取参数错误信息
         FieldError fieldError = bindingResult.getFieldError();
         if (fieldError != null) {
-            String msg = fieldError.getDefaultMessage();
+            String msg = fieldError.getField() + fieldError.getDefaultMessage();
             return Response.error(CommonErrorCode.PARAMETER.getCode(), msg);
         }
 
@@ -54,6 +56,7 @@ public class WarshipExceptionHandler {
     @ResponseBody
     @ExceptionHandler(BindException.class)
     public Response<Object> formDataHandle(BindException e) {
+        e.printStackTrace();
 
         if (!e.hasErrors() || e.getFieldError() == null) {
             return Response.error(CommonErrorCode.PARAMETER);
@@ -69,6 +72,8 @@ public class WarshipExceptionHandler {
     @ResponseBody
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Response<Object> methodHandle(HttpMessageNotReadableException e) {
+        e.printStackTrace();
+
         return Response.error(CommonErrorCode.PARAMETER);
     }
 
@@ -78,6 +83,8 @@ public class WarshipExceptionHandler {
     @ResponseBody
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Response<Object> httpHandle(HttpRequestMethodNotSupportedException e) {
+        e.printStackTrace();
+
         return Response.error(CommonErrorCode.HTTP_METHOD_ERROR);
     }
 
@@ -88,7 +95,7 @@ public class WarshipExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Response<Object> handle(Exception e) {
-        log.error(e + "");
+        e.printStackTrace();
         return Response.error(CommonErrorCode.SERVER_ERROR);
     }
 }
