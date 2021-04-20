@@ -22,6 +22,13 @@ public class Response<T> implements IResponse<T> {
 
     private T data;
 
+    public static Response<Boolean> ok() {
+        Response<Boolean> response = new Response<>();
+        response.setCode(SUCCESS);
+        response.setData(true);
+        return response;
+    }
+
     public static <T> Response<T> success(T data) {
         Response<T> response = new Response<>();
         response.setCode(SUCCESS);
